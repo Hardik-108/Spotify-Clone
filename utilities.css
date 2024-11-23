@@ -1,0 +1,10 @@
+.flex{
+    display: flex;
+}
+
+.bg-grey{
+    background-color: #131312;
+}
+.invert{
+    filter: invert(1);
+}
