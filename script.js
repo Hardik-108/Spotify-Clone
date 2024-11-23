@@ -2,7 +2,7 @@ let currfolder;
 let currentSong = new Audio();
 async function getsongs(folder) {
   currfolder = folder;
-  let a = await fetch(`https://hardik-108.github.io/Spotify-Clone/${folder}/`);
+  let a = await fetch(`https://github.com/Hardik-108/Spotify-Clone/${folder}/`);
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -78,7 +78,7 @@ let songs = [];
 let ply = document.getElementById("play");
 
 async function DisplayAlbums() {
-  let a = await fetch(`https://hardik-108.github.io/Spotify-Clone/songs/`);
+  let a = await fetch(`https://github.com/Hardik-108/Spotify-Clone/songs/`);
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -90,7 +90,7 @@ async function DisplayAlbums() {
     if (e.href.includes("/songs")) {
       let folder = e.href.split("/").slice(-2)[0];
       let a = await fetch(
-        `https://hardik-108.github.io/Spotify-Clone/${folder}/info.json`
+        `https://github.com/Hardik-108/Spotify-Clone/${folder}/info.json`
       );
       let response = await a.json();
       cardcontainer.innerHTML =
