@@ -2,7 +2,9 @@ let currfolder;
 let currentSong = new Audio();
 async function getsongs(folder) {
   currfolder = folder;
-  let a = await fetch(`https://github.com/Hardik-108/Spotify-Clone/tree/master/${folder}/`);
+  let a = await fetch(
+    `https://spotify-clone-one-bice.vercel.app/${folder}/`
+  );
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -66,7 +68,7 @@ function playMusic(songName, pause = false) {
   currentSong.src = `/${currfolder}/` + songName;
   if (!pause) {
     currentSong.play();
-    ply.src = "pause.svg";
+    ply.src = "img/pause.svg";
   }
   let title = document.querySelector(".title");
   title.innerHTML = decodeURI(songName);
@@ -78,7 +80,7 @@ let songs = [];
 let ply = document.getElementById("play");
 
 async function DisplayAlbums() {
-  let a = await fetch(`https://github.com/Hardik-108/Spotify-Clone/tree/master/songs/`);
+  let a = await fetch(`https://spotify-clone-one-bice.vercel.app/songs/`);
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -90,7 +92,7 @@ async function DisplayAlbums() {
     if (e.href.includes("/songs")) {
       let folder = e.href.split("/").slice(-2)[0];
       let a = await fetch(
-        `https://github.com/Hardik-108/Spotify-Clone/tree/master/${folder}/info.json`
+        `https://spotify-clone-one-bice.vercel.app/songs/${folder}/info.json`
       );
       let response = await a.json();
       cardcontainer.innerHTML =
@@ -123,10 +125,10 @@ async function main() {
   ply.addEventListener("click", (element) => {
     if (currentSong.paused) {
       currentSong.play();
-      ply.src = "pause.svg";
+      ply.src = "img/pause.svg";
     } else {
       currentSong.pause();
-      ply.src = "play.svg";
+      ply.src = "img/play.svg";
     }
   });
 
